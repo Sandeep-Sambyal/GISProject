@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{%load crispy_forms_tags %} 
+{%block title%} GIS-Homepage {% endblock %}
+{% block css %} {% endblock %}
+
+{% block body %}
+<hr>
+<div class="container lg-8 m-auto">
+    <h3>Hi this application tells us the distance between the server of any web application to any location in the world.</h3>
+    <h4>In source URL we can pass the URL of any application, and in the destination we can pass the name of any city. Application will tell us the distance between the applciation server and the destination city.</h4>
+    <form method="POST", action="">
+        {% csrf_token %}
+        {{form | crispy }}
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+    <hr>
+    This product includes GeoLite2 data created by MaxMind, available from
+    <a href="https://www.maxmind.com">https://www.maxmind.com</a>.
+    <hr>
+    <p class="text-capitalize fs-5 text-warning bg-dark">{{output}}</p>
+
+    {{map | safe}}
+</div>
+{% endblock %}
+
+{% block js %} {% endblock %}

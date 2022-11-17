@@ -1,0 +1,6 @@
+django
+psycopg2
+django-crispy-forms
+geoip2
+geopy
+folium
